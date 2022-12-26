@@ -14,7 +14,8 @@ export default class UserLists extends React.Component {
 
         config.headers["Authorization"] = "Token " + localStorage.getItem("token");
 
-        let url = "http://127.0.0.1:8000/lists/"
+        const { REACT_APP_BACKEND_IP } = process.env;
+        let url = `${REACT_APP_BACKEND_IP}lists/`
         const response = await fetch(url, config)
         const data = await response.json()
         console.log(data);

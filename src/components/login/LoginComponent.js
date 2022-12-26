@@ -31,7 +31,8 @@ export default class LoginComponent extends React.Component {
     }
 
     handleSubmit(event) {
-        const url = "http://127.0.0.1:8000/api-token-auth"
+        const { REACT_APP_BACKEND_IP } = process.env;
+        const url = `${REACT_APP_BACKEND_IP}api-token-auth`
         const requestOptions = {
             method: "POST",
             headers: { "Content-Type": "application/json" },
